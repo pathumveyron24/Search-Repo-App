@@ -1,12 +1,50 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Search Any Repos Here
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  This is the first thing
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://beta.ionicframework.com/docs/">docs</a> will be your guide.</p>
+ 
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <ion-list radio-group>
+          <ion-list-header>
+            Language
+          </ion-list-header>
+        
+          <ion-item>
+            <ion-label>Go</ion-label>
+            <ion-radio value="go"></ion-radio>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label>Rust</ion-label>
+            <ion-radio value="rust"></ion-radio>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label>Python</ion-label>
+            <ion-radio value="python"></ion-radio>
+          </ion-item>
+        </ion-list>
+
+        
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+<ion-list>
+  <ion-item *ngFor="let item of items">
+    {{ item }}
+  </ion-item>
+</ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>
